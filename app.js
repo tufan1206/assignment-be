@@ -14,7 +14,12 @@ app.use(express.json()); // parse JSON bodies
 
 
 app.use("/api/products", product_route);
-
+app.get ('/',(req,res)=>{
+  res.send ({
+    activeStatus : true,
+    error : false,
+  })
+})
 
 const Start = async () => {
   try {
