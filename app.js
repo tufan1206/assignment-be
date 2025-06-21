@@ -1,3 +1,4 @@
+require ("dotenv").config();
 const express = require("express");
 const cors = require("cors"); 
 const app = express();
@@ -17,7 +18,7 @@ app.use("/api/products", product_route);
 
 const Start = async () => {
   try {
-    await connectDB();
+    await connectDB(process.env.MONGODB_URL);
     app.listen(PORT, () => {
       console.log(`Server is listening at port: ${PORT} `);
     });
